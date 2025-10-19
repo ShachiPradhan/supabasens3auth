@@ -13,6 +13,16 @@ SUPABASE_API_KEY = os.getenv("NEXT_PUBLIC_SUPABASE_ANON_KEY")
 
 # Initialize Supabase client
 supabase = create_client(SUPABASE_URL, SUPABASE_API_KEY)
+# database.py
+
+def insert_student(data):
+    return supabase.table('Student').insert(data).execute()
+
+def insert_batch(data):
+    return supabase.table('Batch').insert(data).execute()
+
+def insert_answer_schema(data):
+    return supabase.table('answer_schema').insert(data).execute()
 
 # ---------------------- Student Table ----------------------
 
