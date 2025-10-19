@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, session, flash
 from supabase import create_client, Client
 import os
 from dotenv import load_dotenv
+from dashboard.routes import dashboard_bp
 
 # Load environment variables from .env file
 load_dotenv()
@@ -76,4 +77,5 @@ def logout():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
+    from dashboard.routes import dashboard_bp
+app.register_blueprint(dashboard_bp)
